@@ -48,7 +48,7 @@ class UnixDateTimeField(models.DateTimeField):
 
     def value_to_string(self, obj):
         val = self._get_val_from_obj(obj)
-        return self.to_python(val).strftime(self.DEFAULT_DATETIME_FMT)
+        return val
 
     def from_db_value(self, val, expression, connection, context):
-        return self.to_python(val)
+        return val
