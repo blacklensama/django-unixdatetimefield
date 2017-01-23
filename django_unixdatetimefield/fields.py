@@ -44,6 +44,8 @@ class UnixDateTimeField(models.DateTimeField):
         if val is None:
             if self.default == models.fields.NOT_PROVIDED:  return None
             return self.default
+        if type(val) is int:
+            return val
         return int(time.mktime(val.timetuple()))
 
     def value_to_string(self, obj):
